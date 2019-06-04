@@ -1,0 +1,55 @@
+https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0
+https://www.raspberrypi.org/forums/viewtopic.php?t=228711
+https://liftcodeplay.com/2017/06/30/how-to-install-python-3-6-on-raspbian-linux-for-raspberry-pi/
+
+https://pinout.xyz/
+https://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/
+https://www.raspberrypi.org/blog/gpio-zero-a-friendly-python-api-for-physical-computing/
+https://projects.raspberrypi.org/en/projects/the-all-seeing-pi/12
+https://github.com/klirichek/zj-58
+
+# update to python 3.7
+  https://gist.github.com/SeppPenner/6a5a30ebc8f79936fa136c524417761d
+
+remove python 3.5
+  sudo apt-get autoremove python*
+
+update dependencies
+  sudo apt-get update -y
+  sudo apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev -y
+
+get and install python 3.7
+  wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+  tar xf Python-3.7.0.tar.xz
+  cd Python-3.7.0
+  ./configure
+  make -j 4
+  sudo make altinstall
+
+cleanup
+  sudo rm -r Python-3.7.0
+  rm Python-3.7.0.tar.xz
+  sudo apt-get --purge remove build-essential tk-dev -y
+  sudo apt-get --purge remove libncurses5-dev libncursesw5-dev libreadline6-dev -y
+  sudo apt-get --purge remove libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev -y
+  sudo apt-get --purge remove libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev -y
+  sudo apt-get autoremove -y
+  sudo apt-get clean
+
+change default link
+  sudo ln -sf /usr/local/bin/python3.7 /usr/bin/python
+  sudo ln -sf /usr/bin/python3.5 /usr/bin/python3
+
+
+https://styxit.com/2017/03/14/headless-raspberry-setup.html
+https://desertbot.io/blog/setup-pi-zero-w-headless-wifi
+
+Setting WiFi up via the command line
+https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+
+install python3.6
+  http://www.knight-of-pi.org/installing-python3-6-on-a-raspberry-pi/
+TODO: remove old python versions?
+
+install pyyaml
+  pip3 install pyyaml
