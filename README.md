@@ -1,7 +1,7 @@
 # Raspberry Pi Photo Booth 2
 Borrows heavily from https://github.com/jibbius/raspberry_pi_photo_booth
 
-printer drivers: https://github.com/klirichek/zj-58
+printer setup: https://learn.adafruit.com/networked-thermal-printer-using-cups-and-raspberry-pi/connect-and-configure-printer
 
 program startup
   read config
