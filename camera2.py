@@ -53,10 +53,10 @@ left_button = Button(config['BUTTON_LEFT'])
 right_button = Button(config['BUTTON_RIGHT'])
 
 leds = {
-    "led1": LED(config['BUTTON_LEFT'])
-    "led2": LED(config['BUTTON_MIDDLE'])
-    "led3": LED(config['BUTTON_RIGHT'])
-    "lights": LED(config['LIGHT_RELAY'])
+    'led1': LED(config['BUTTON_LEFT']),
+    'led2': LED(config['BUTTON_MIDDLE']),
+    'led3': LED(config['BUTTON_RIGHT']),
+    'lights': LED(config['LIGHT_RELAY']),   
 }
 
 def blink(led, t=0.5):
