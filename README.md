@@ -20,8 +20,30 @@ config objects
   - button pin
   - exit button pin
   - flash relay pin
-  - number of copies to print copies
+  - number of copies to print
   - display resolution
   - image save destination
   - image capture size
   - image rotation
+
+booth_event
+  - create directory
+  - create filename
+
+util_class
+  change overlay
+
+flash_control
+  - turn on/off
+
+camera_control
+  - take photo
+  - save photo
+  - display photo
+
+hardware
+  - camera
+  - buttons
+  - countdown LEDs
+  - flash
+  - printer

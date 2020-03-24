@@ -5,6 +5,7 @@ photobooth program
 import sys
 import yaml
 import os
+import subprocess
 import datetime
 from time import sleep
 
@@ -30,6 +31,16 @@ def get_subfolder_name(basepath='./'):
 def get_base_filename():
     return datetime.datetime.now().strftime('%H%M%S')
 
+def create_folder():
+    pass
+
+def print():
+    pass
+
+def flash():
+    # toggles on or off
+    pass
+
 config = read_config("./config.yaml")
 output_folder = get_subfolder_name(config["SAVE_RAW_IMAGES_FOLDER"])
 #TODO: make output_folder if doesn't exist
@@ -37,14 +48,15 @@ output_folder = get_subfolder_name(config["SAVE_RAW_IMAGES_FOLDER"])
 camera = PiCamera()
 # camera.resolution = (config["PHOTO_W"], config["PHOTO_H"])
 
-exit_button = Button(config['EXIT_BUTTON_PIN'])
-snap_button = Button(config['CAMERA_BUTTON_PIN'])
+go_button = Button(config['BUTTON_MIDDLE'])
+left_button = Button(config['BUTTON_LEFT'])
+right_button = Button(config['BUTTON_RIGHT'])
 
 leds = {
-    "r": LED(21),
-    "g": LED(13),
-    # "rpwm": PWMLED(13),
-    # "gpwm": PWMLED(21),
+    "led1": LED(config['BUTTON_LEFT'])
+    "led2": LED(config['BUTTON_MIDDLE'])
+    "led3": LED(config['BUTTON_RIGHT'])
+    "lights": LED(config['LIGHT_RELAY'])
 }
 
 def blink(led, t=0.5):
@@ -59,11 +71,15 @@ def snap():
     camera.capture(output_folder + '/' + filename + '.jpg')
     camera.stop_preview()
 
+def countdownlights():
+    blink('one')
+    blink('two')
+    blink('three')
+
 while True:
-    if exit_button.is_pressed:
-        blink("r")
-        print('goodbye')
+    if go_button.is_pressed:
+        countdownlights("r")
+    if left_button.is_pressed:
+        blink("lights")
+    if right_button.is_pressed:
         sys.exit()
-    if snap_button.is_pressed:
-        blink("g")
-        snap()

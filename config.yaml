@@ -1,9 +1,15 @@
-#Button pinout:
-"CAMERA_BUTTON_PIN" : 16 # GPIO pin that is connected to 'take photo' button
-"EXIT_BUTTON_PIN"   : 26 # GPIO pin that is connected to 'exit' button (optional)
+# set the GPIO pins that the light relay is connected to
+"LIGHT_RELAY" : 4
 
-#light relay gpio pin
-"LIGHT_RELAY" : 13
+# set the GPIO pins that the buttons are connected to
+"BUTTON_LEFT"     : 5
+"BUTTON_MIDDLE"   : 13
+"BUTTON_RIGHT"    : 6
+
+# set the GPIO pins that the LEDs are connected to
+"LED_LEFT"        : 22
+"LED_MIDDLE"      : 17
+"LED_RIGHT"       : 27
 
 #GPIO Debounce Duration
 # (This may help avoid "phantom presses" caused by electronic interference)
